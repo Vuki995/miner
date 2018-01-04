@@ -1,12 +1,13 @@
 #include <stdlib.h>
 #include <GL/glut.h>
 #include"header.h"
-#include<stdio.h>
+#include<stdio.h> 
 
 static int window_width, window_height;
 static int animation_active;
 static int val=0;/*vrednost za signaliziranje rotacije mape*/
 static igrac a;
+static kocka kocke[brred][brred][brred];/*matrica koja predstavlja teren*/
 static void on_keyboard(unsigned char key, int x, int y);
 static void on_reshape(int width, int height);
 static void on_timer(int value);
@@ -14,6 +15,7 @@ static void on_display(void);
 
 int main(int argc, char **argv)
 {
+    napravi(kocke);
     a=spawn();
     animation_active = 0;
     glutInit(&argc, argv);
@@ -47,17 +49,11 @@ static void on_keyboard(unsigned char key, int x, int y)
 			val=2;break;
 		case 'e':if(a.smer%100==0)
 			val=1; break;
-		case 'w':if(a.korak==0&&!val){
-			     a=pokret(a,'w');
-			 }break;
-		case 's':if(a.korak==0&&!val){
-			     a=pokret(a,'s');
-			 }break;
-		case 'a':if(a.korak==0&&!val){
-			     a=pokret(a,'a');
-			 }break;
+		case 'w':
+		case 's':
+		case 'a':
 		case 'd':if(a.korak==0&&!val){
-			     a=pokret(a,'d');
+			     a=pokret(a,key, kocke);
 			 }break;
 	    }
 	}
@@ -111,7 +107,6 @@ static void on_reshape(int width, int height)
 
 static void on_display(void)
 { 
-    float q=0.25;
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, window_width, window_height);
     glMatrixMode(GL_PROJECTION);
@@ -122,14 +117,10 @@ static void on_display(void)
     gluLookAt(0, 0, 4, 0, 0, 0, 0, 1, 0);
     /*crta igraca*/
     glPushMatrix();
-	    if(animation_active==1){
-		glColor3f(1,0,0);}
-	    else
-		glColor3f(0,0,1);
-    	glScalef(q,q,q);
-    	glRotatef(((float)a.smer)*90/100,0,1,0);
-    	glTranslatef(a.x,a.y, a.z);
-    	glutSolidCube(1);
+	karakter(animation_active, a);
+    glPopMatrix();
+    glPushMatrix();
+	mapa(kocke, val, &a);
     glPopMatrix();
     glutSwapBuffers();
 }

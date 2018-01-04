@@ -3,82 +3,38 @@
 #include<GL/glut.h>
 #include<stdio.h>
 #include <GL/freeglut.h>
-igrac spawn(void){ /*postavlja pocetne vrednosti igraca*/
-    igrac a;
-    a.i=4;
-    a.j=0;
-    a.k=4;
-    a.x=0.5;
-    a.y=4.5;
-    a.z=0.5;
-    a.x1=0.5;
-    a.y1=4.5;
-    a.z1=0.5;
-    a.korak=0;
-    a.stanje=1;
-    a.smer=0;
-    a.i1=0;
-    a.j1=0;
-    a.k1=0;
-return a;
-}
-/*funkcija kretanja, u zavisnosti od pritisnutog dugmeta, orijentacije i pozicije, funkcija odredjuje da li igrac moze da se krece*/
-igrac pokret(igrac a, char c){ 
-    a.x1=a.x;
-    a.y1=a.y;
-    a.z1=a.z;
-if(c=='w'){
-    if(a.y<4.5)
-	a.j1=-1;
-return a;
-}
-if(c=='s'){
-    if(a.y>-4.5)
-	a.j1=1;
-return a;
-}
-switch(a.smer){
-    case 0:if(c=='a'){
-		if(a.x>-4.5)
-		    a.k1=1;
-		return a;
-	    }
-	   if(c=='d'){
-		if(a.x<4.5)
-		    a.k1=-1;
-		return a;
-	    }break;
-    case 100:if(c=='a'){
-		if(a.z>-4.5)
-		    a.i1=1;
-		return a;
-	    }
-	   if(c=='d'){
-		if(a.z<4.5)
-		    a.i1=-1;
-		return a;
-	    }break;
-    case 200:if(c=='d'){
-		if(a.x>-4.5)
-		    a.k1=1;
-		return a;
-	    }
-	   if(c=='a'){
-		if(a.x<4.5)
-		    a.k1=-1;
-		return a;
-	    }break;
-    case 300:if(c=='d'){
-		if(a.z>-4.5)
-		    a.i1=1;
-		return a;
-	    }
-	   if(c=='a'){
-		if(a.z<4.5)
-		    a.i1=-1;
-		return a;
-	    }break;
 
+void napravi(kocka a[10][10][10]){
+int i,j,k,l;
+ for(i=0;i<brred;i++){
+      for(j=0;j<brred;j++){
+	for(k=0;k<brred;k++){
+		a[i][j][k].x=(4.5-k);
+		a[i][j][k].y=(4.5-j);
+		a[i][j][k].z=(4.5-i);
+    		a[i][j][k].tip=1;
+		a[i][j][k].vidjeno=0;
+		a[i][j][k].prokopano=0;
+		a[i][j][k].health=3;
+	}
+      }
+    }
+a[4][0][4].prokopano=1;
+a[4][0][3].vidjeno=1;
+a[4][0][5].vidjeno=1;
+a[3][0][4].vidjeno=1;
+a[5][0][4].vidjeno=1;
+a[4][1][4].vidjeno=1;
+for(i=0;i<20;i++){
+	j=rand()%10;
+	k=rand()%10;
+	l=rand()%10;
+	if(j!=4&&k!=0&&l!=4){
+		a[j][k][l].tip=2;
+	}
+	else
+		i--;
+	}
 
 }
-}
+

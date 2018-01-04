@@ -16,4 +16,5 @@ status igre:
 kreirana osnovna okolina i kocka koja predstavlja igraca.
 Igrac moze da se krece gore dole levo desno, vrti oko Y ose
 i pauzira igru
-
+Ubacen je teren.
+Dodata je kolizija i interakcija igraca sa terenom.

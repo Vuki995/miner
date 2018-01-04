@@ -5,7 +5,7 @@ LDFLAGS = -L/usr/X11R6/lib -L/usr/pkg/lib
 LDLIBS  = -lglut -lGLU -lGL
 
 $(PROGRAM): main.o
-	$(CC) $(LDFLAGS) -o $(PROGRAM) main.o funkcije.c  $(LDLIBS)
+	$(CC) $(LDFLAGS) -o $(PROGRAM) main.o funkcije.c draw.c igrac.c $(LDLIBS)
 
 .PHONY: clean dist
 
