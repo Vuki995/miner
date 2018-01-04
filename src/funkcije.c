@@ -1,4 +1,4 @@
-#include"header.h"
+#include"header.h" 
 #include<stdlib.h>
 #include<GL/glut.h>
 #include<stdio.h>
