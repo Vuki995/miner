@@ -1,4 +1,4 @@
-#ifndef _POLINOM_H_
+#ifndef _POLINOM_H_ 
 #define _POLINOM_H_
 #define brred 10 /*dimenzije terena*/
 #define TIMEF 10 /*vreme za svaki frejm*/
