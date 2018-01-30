@@ -18,3 +18,4 @@ Igrac moze da se krece gore dole levo desno, vrti oko Y ose
 i pauzira igru
 Ubacen je teren.
 Dodata je kolizija i interakcija igraca sa terenom.
+Dodat je model igraca, metak, bot, vremensko ogranicenje i poeni.
