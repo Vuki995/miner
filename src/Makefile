@@ -2,10 +2,10 @@ PROGRAM = rudar
 CC      = gcc
 CFLAGS  = -g -ansi -Wall -I/usr/X11R6/include -I/usr/pkg/include
 LDFLAGS = -L/usr/X11R6/lib -L/usr/pkg/lib
-LDLIBS  = -lglut -lGLU -lGL
+LDLIBS  = -lglut -lGLU -lGL -lm
 
 $(PROGRAM): main.o
-	$(CC) $(LDFLAGS) -o $(PROGRAM) main.o funkcije.c draw.c igrac.c $(LDLIBS)
+	$(CC) $(LDFLAGS) -o $(PROGRAM) main.o funkcije.c metak.c bot.c draw.c igrac.c  $(LDLIBS)
 
 .PHONY: clean dist
 
