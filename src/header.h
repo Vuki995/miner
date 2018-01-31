@@ -6,7 +6,7 @@
 #define MAXB 5   /*brzina metka*/
 #define MAXS 50  /*brzina botova*/
 #define Bnum 20  /*broj botova*/
-#define timeT 300 /*vreme trajanja*/
+#define timeT 150 /*vreme trajanja*/
 #define rechargeR 25 /*brzina pucanja*/
 /*struktura igraca*/
 typedef struct ig{
