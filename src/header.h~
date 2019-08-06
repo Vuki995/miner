@@ -84,8 +84,5 @@ void drawBack(kocka kocke [brred][brred][brred], igrac *a, int i, int j, int k, 
 void botovi(bot b[Bnum], int br, int a);
 void startstop(int animation_active, int clock, igrac a);
 void robot(float f, int a, int b, char c);
-/*light.c*/
-void init_lighting();
-void set_mat(int a, int b);
 #endif
 

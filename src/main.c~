@@ -146,7 +146,7 @@ static void on_display(void)
     gluPerspective(60, window_width/(float)window_height, 1, 6);
     
     glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity(); 
+    glLoadIdentity();
     gluLookAt(0, 0, 4, 0, 0, 0, 0, 1, 0); 
     /*start-end*/
     startstop(animation_active, clock, a);

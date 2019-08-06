@@ -42,12 +42,10 @@ for(i=0;i<brred;i++){
 				if(kocke[i][j][k].z==a->z){
 			        	drawFront(kocke, a, i, j, k,q);
 				}
-				if(a->smer==0&&kocke[i-1][j][k].vidjeno==1&&kocke[i-1][j][k].prokopano==1&&kocke[i][j][k].z==a->z-1){
-					if(kocke[i][j][k].prokopano==0)
+				if(a->smer==0&&kocke[i-1][j][k].prokopano==1&&kocke[i][j][k].z==a->z-1&&kocke[i][j][k].prokopano==0){
 			        	drawBack(kocke, a, i, j, k,q);
 				}
-				if(a->smer==200&&kocke[i+1][j][k].vidjeno==1&&kocke[i+1][j][k].prokopano==1&&kocke[i][j][k].z==a->z+1){
-					if(kocke[i][j][k].prokopano==0)
+				if(a->smer==200&&kocke[i+1][j][k].prokopano==1&&kocke[i][j][k].z==a->z+1&&kocke[i][j][k].prokopano==0){
 			        	drawBack(kocke, a, i, j, k,q);
 				}
 			}
@@ -55,12 +53,10 @@ for(i=0;i<brred;i++){
 				if(kocke[i][j][k].x==a->x){	
 					drawFront(kocke, a, i, j, k,q);
 				}
-				if(a->smer==100&&kocke[i][j][k+1].vidjeno==1&&kocke[i][j][k+1].prokopano==1&&kocke[i][j][k].x==a->x+1){
-					if(kocke[i][j][k].prokopano==0)
+				if(a->smer==100&&kocke[i][j][k+1].prokopano==1&&kocke[i][j][k].x==a->x+1&&kocke[i][j][k].prokopano==0){
 			        	drawBack(kocke, a, i, j, k,q);
 				}
-				if(a->smer==300&&kocke[i][j][k-1].vidjeno==1&&kocke[i][j][k-1].prokopano==1&&kocke[i][j][k].x==a->x-1){
-					if(kocke[i][j][k].prokopano==0)
+				if(a->smer==300&&kocke[i][j][k-1].prokopano==1&&kocke[i][j][k].x==a->x-1&&kocke[i][j][k].prokopano==0){
 			        	drawBack(kocke, a, i, j, k,q);
 				}
 			}
